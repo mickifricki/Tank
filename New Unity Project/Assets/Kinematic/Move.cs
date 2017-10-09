@@ -8,7 +8,7 @@ public class Move : MonoBehaviour {
 	public GameObject aim;
 	public Slider arrow;
 	public float angle; 
-	public float max_mov_velocity = 5.0f;
+	public float max_mov_velocity = 3.0f;
 
 	public Vector3 mov_velocity = Vector3.zero;
 
@@ -31,6 +31,7 @@ public class Move : MonoBehaviour {
 
 		angle = Mathf.Atan2 (mov_velocity.x, mov_velocity.z) * Mathf.Rad2Deg;
 		aim.transform.rotation = Quaternion.AngleAxis (angle, Vector3.up);
+		transform.rotation = Quaternion.AngleAxis (angle, Vector3.up);
 
 		// TODO 3: stretch it the arrow (arrow.Slider) to show how fast the tank is getting push in
 		// that direction. Adjust with some factor so the arrow is visible.
