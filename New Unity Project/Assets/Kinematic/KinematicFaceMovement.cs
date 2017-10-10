@@ -3,20 +3,25 @@ using System.Collections;
 
 public class KinematicFaceMovement : MonoBehaviour {
 
+	public float min_angle = 1.0f;
+
 	Move move;
-	float angle; 
+
 	// Use this for initialization
 	void Start () {
 		move = GetComponent<Move>();
 	}
-
+	
 	// Update is called once per frame
-	void Update () {
-		// TODO 7: rotate the whole tank to look in the movement direction
-		// Extremnely similar to TODO 2
-		angle = Mathf.Atan2 (move.mov_velocity.x, move.mov_velocity.z) * Mathf.Rad2Deg;
-		move.transform.rotation = Quaternion.AngleAxis (angle, Vector3.up);
+	void Update () 
+	{
+		float target_degrees = Mathf.Atan2(move.movement.x, move.movement.z) * Mathf.Rad2Deg;
+		float current_degrees = Mathf.Atan2(transform.forward.x, transform.forward.z) * Mathf.Rad2Deg;
+		float delta = Mathf.DeltaAngle(target_degrees, current_degrees);
+
+		if(Mathf.Abs(delta) < min_angle)
+			move.SetRotationVelocity(0.0f);
+		else
+			move.SetRotationVelocity(-delta);
 	}
 }
-
-

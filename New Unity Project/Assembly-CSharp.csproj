@@ -53,6 +53,12 @@
      <Compile Include="Assets\Kinematic\KinematicWander.cs" />
      <Compile Include="Assets\Kinematic\Move.cs" />
      <Compile Include="Assets\MoveToMouseClick.cs" />
+     <Compile Include="Assets\Steering\SteeringAlign.cs" />
+     <Compile Include="Assets\Steering\SteeringArrive.cs" />
+     <Compile Include="Assets\Steering\SteeringFlee.cs" />
+     <Compile Include="Assets\Steering\SteeringPursue.cs" />
+     <Compile Include="Assets\Steering\SteeringSeek.cs" />
+     <Compile Include="Assets\Steering\SteeringVelocityMatching.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
